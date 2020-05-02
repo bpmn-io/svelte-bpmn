@@ -1,0 +1,44 @@
+{
+  "name": "bpmn-js-svelte-example",
+  "description": "An example how to integrate bpmn-js with a Svelte application",
+  "version": "0.0.0",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-bpmn-io": "^0.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "raw-loader": "^4.0.1",
+    "sass-loader": "^8.0.2",
+    "serve": "^11.3.0",
+    "style-loader": "^1.1.3",
+    "svelte": "^3.20.1",
+    "svelte-loader": "2.13.6",
+    "svelte-preprocess-sass": "^0.2.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinussilvestrus/bpmn-js-svelte-example.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "build:watch": "webpack -w",
+    "serve": "serve public/",
+    "dev": "run-p build:watch serve",
+    "lint": "eslint --ext js,svelte .",
+    "all": "run-s lint build"
+  },
+  "dependencies": {
+    "bpmn-js": "^6.5.1",
+    "min-dash": "^3.5.2"
+  }
+}
