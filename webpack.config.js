@@ -59,9 +59,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "bundle.css"
     }),
-    new CopyWebpackPlugin([
-      { from: 'assets/**', context: 'node_modules/bpmn-js/dist/' },
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'assets/**', context: 'node_modules/bpmn-js/dist/' },
+      ]
+    })
   ],
   devtool: prod ? false : "source-map"
 };
