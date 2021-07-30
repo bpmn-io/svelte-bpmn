@@ -1,10 +1,18 @@
 <script>
-  import Diagram from './components/Diagram';
+  import SvelteBpmn from 'svelte-bpmn';
 
   import newDiagramXML from '../resources/newDiagram.bpmn';
 
   const handleDiagramLoaded = () => {
     console.log('Diagram successfully loaded!');
+  };
+
+  const handleDiagramError = (error) => {
+    console.log('Diagram import resolved in errors: ', error);
+  };
+
+  const handleDiagramWarning = (warnings) => {
+    console.log('Diagram import warnings: ', warnings);
   };
 </script>
 
@@ -18,18 +26,23 @@
   }
 
   .diagram-container {
-    height: 30em;
+    height: 700px;
     border: 1px solid grey;
   }
 </style>
 
 <div class="app">
-  <h1>bpmn-js Svelte Example</h1>
+  <h1>svelte-bpmn Example</h1>
 
   <p class="introduction">This example shows how to simply include a bpmn diagram into a Svelte application</p>
 
   <div class="diagram-container">
-    <Diagram xml={newDiagramXML} onDiagramLoaded={handleDiagramLoaded} />
+    <SvelteBpmn 
+      xml={newDiagramXML} 
+      onError={handleDiagramError}
+      onLoaded={handleDiagramLoaded} 
+      onWarning={handleDiagramWarning}
+    />
   </div>
 
   <p>Vivamus vivamus lectus luctus malesuada curae;. Fringilla Arcu orci sem aenean Eros. Iaculis ac faucibus nam maecenas lectus integer integer penatibus luctus lobortis tristique suspendisse inceptos. Bibendum nostra elit habitant sociosqu praesent viverra. Turpis torquent dolor neque diam blandit. Senectus lorem lacus sociosqu etiam sollicitudin class nonummy rutrum netus sapien sollicitudin lacinia fringilla lacus tempus malesuada et velit. Dis ornare luctus curabitur rhoncus class sagittis consequat porttitor amet parturient. Nam ultrices netus sociosqu molestie porttitor donec torquent interdum erat dolor mi nulla blandit hac egestas hymenaeos ut ultricies ut inceptos sociosqu habitasse varius non. Vitae venenatis cras.</p>
