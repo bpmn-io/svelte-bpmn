@@ -1,7 +1,7 @@
 <script>
   import SvelteBpmn from 'svelte-bpmn';
 
-  import newDiagramXML from '../resources/newDiagram.bpmn';
+  import diagramXML from '../resources/diagram.bpmn';
 
   const handleDiagramLoaded = () => {
     console.log('Diagram successfully loaded!');
@@ -26,7 +26,7 @@
   }
 
   .diagram-container {
-    height: 700px;
+    height: 400px;
     border: 1px solid grey;
   }
 </style>
@@ -38,7 +38,7 @@
 
   <div class="diagram-container">
     <SvelteBpmn 
-      xml={newDiagramXML} 
+      xml={diagramXML} 
       onError={handleDiagramError}
       onLoaded={handleDiagramLoaded} 
       onWarning={handleDiagramWarning}

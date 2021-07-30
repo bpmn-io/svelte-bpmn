@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/bpmn-io/svelte-bpmn/workflows/CI/badge.svg)](https://github.com/bpmn-io/svelte-bpmn/actions?query=workflow%3ACI)
 
-Embed and edit BPMN 2.0 diagrams in your [Svelte](https://svelte.dev/) app - powered by [bpmn-js](https://github.com/bpmn-io/bpmn-js).
+Embed BPMN 2.0 diagrams in your [Svelte](https://svelte.dev/) app - powered by [bpmn-js](https://github.com/bpmn-io/bpmn-js).
 
 
 ## Installation
