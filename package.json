@@ -1,6 +1,6 @@
 {
   "name": "svelte-bpmn",
-  "description": "Embed and edit BPMN 2.0 diagrams in your Svelte app",
+  "description": "Embed BPMN 2.0 diagrams in your Svelte app",
   "version": "0.0.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",

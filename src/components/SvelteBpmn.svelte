@@ -4,7 +4,7 @@
     onMount
   } from 'svelte';
 
-  import BpmnModeler from 'bpmn-js/lib/Modeler';
+  import BpmnViewer from 'bpmn-js/lib/Viewer';
 
   const noop = () => {};
 
@@ -14,16 +14,16 @@
   export let onWarning = noop;
 
   let container;
-  let modeler;
+  let viewer;
   
 
   onMount(async () => {
-    modeler = new BpmnModeler({
+    viewer = new BpmnViewer({
       container: container,
       keyboard: { bindTo: document }
     });
 
-    modeler.on('import.done', event => {
+    viewer.on('import.done', event => {
       const {
         error,
         warnings
@@ -37,7 +37,7 @@
         onWarning(warnings);
       }
 
-      const canvas = modeler.get('canvas');
+      const canvas = viewer.get('canvas');
       canvas.zoom('fit-viewport');
 
       return onLoaded(event);
@@ -45,11 +45,11 @@
   });
 
   onDestroy(() => {
-    modeler.destroy();
+    viewer.destroy();
   });
 
   // re-import diagram whenever xml changes
-  $: modeler && modeler.importXML(xml);
+  $: viewer && viewer.importXML(xml);
 </script>
 
 <div 
