@@ -51,6 +51,11 @@ npm install --save svelte-bpmn
 
 Checkout the [example](./example) to get further information.
 
+## Additional Resources
+
+* [bpmn-js Examples](https://github.com/bpmn-io/bpmn-js-examples)
+* [bpmn-js Viewer Documentation](https://github.com/bpmn-io/bpmn-js/blob/master/lib/Viewer.js), [Example](https://github.com/bpmn-io/bpmn-js-examples/blob/master/starter/viewer.html)
+* [bpmn-js Modeler Documentation](https://github.com/bpmn-io/bpmn-js/blob/master/lib/Modeler.js), [Example](https://github.com/bpmn-io/bpmn-js-examples/tree/master/modeler)
 
 ## License
 
