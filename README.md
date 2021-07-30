@@ -13,7 +13,7 @@ npm install --save svelte-bpmn
 
 ## Usage
 
-```javascript
+```svelte
 <script>
   import SvelteBpmn from 'svelte-bpmn';
 
