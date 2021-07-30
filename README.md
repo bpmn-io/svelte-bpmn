@@ -1,85 +1,56 @@
-# bpmn-js-svelte-example
+# svelte-bpmn
 
-An example how to integrate bpmn-js with a [Svelte](https://svelte.dev/) application.
+[![CI](https://github.com/bpmn-io/svelte-bpmn/workflows/CI/badge.svg)](https://github.com/bpmn-io/svelte-bpmn/actions?query=workflow%3ACI)
 
-![Integration Screenshot](./resources/screenshot.png)
+Embed and edit BPMN 2.0 diagrams in your [Svelte](https://svelte.dev/) app - powered by [bpmn-js](https://github.com/bpmn-io/bpmn-js).
 
-## Prerequisites
 
-To install all project dependencies execute
+## Installation
 
 ```sh
-npm install
+npm install --save svelte-bpmn
 ```
 
+## Usage
 
-## Integrating bpmn-js
-
-Integrating bpmn-js is as easy as creating a Svelte component similar to [`Diagram`](./src/components/Diagram.svelte):
-
-```js
+```javascript
 <script>
-  import { onMount } from 'svelte';
+  import SvelteBpmn from 'svelte-bpmn';
 
-  import BpmnModeler from 'bpmn-js/lib/Modeler';
+  const diagram = '..'; // import your BPMN 2.0 XML here
 
-  const noop = () => {};
+  const handleDiagramLoaded = () => {
+    console.log('Diagram successfully loaded!');
+  };
 
+  const handleDiagramError = (error) => {
+    console.log('Diagram import resolved in errors: ', error);
+  };
 
-  onMount(async () => {
-    const modeler = new BpmnModeler({
-      container: '#canvas',
-      keyboard: { bindTo: document }
-    });
-
-    modeler.importXML(xml, error => {
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-
-      const canvas = modeler.get('canvas');
-
-      canvas.zoom('fit-viewport');
-
-      onDiagramLoaded();
-    });
-
-  });
-
-  export let xml = '';
-
-  export let onDiagramLoaded = noop;
+  const handleDiagramWarning = (warnings) => {
+    console.log('Diagram import warnings: ', warnings);
+  };
 </script>
 
 <style>
-  #canvas {
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  .diagram-container {
+    height: 700px;
+    border: 1px solid grey;
   }
 </style>
 
-<div id="canvas">
+<div class="diagram-container">
+  <SvelteBpmn 
+    xml={diagram} 
+    onError={handleDiagramError}
+    onLoaded={handleDiagramLoaded} 
+    onWarning={handleDiagramWarning}
+  />
 </div>
 ```
 
-## Development Setup
+Checkout the [example](./example) to get further information.
 
-Simply execute
-
-```sh
-npm run dev
-```
-
-and visit `http://localhost:5000` to explore the served example application.
-
-## Additional Resources
-
-* [bpmn-js Examples](https://github.com/bpmn-io/bpmn-js-examples)
-* [bpmn-js Viewer Documentation](https://github.com/bpmn-io/bpmn-js/blob/master/lib/Viewer.js), [Example](https://github.com/bpmn-io/bpmn-js-examples/blob/master/starter/viewer.html)
-* [bpmn-js Modeler Documentation](https://github.com/bpmn-io/bpmn-js/blob/master/lib/Modeler.js), [Example](https://github.com/bpmn-io/bpmn-js-examples/tree/master/modeler)
 
 ## License
 
