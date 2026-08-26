@@ -31,7 +31,7 @@
     "start": "run-s dev"
   },
   "dependencies": {
-    "bpmn-js": "^8.7.1",
+    "bpmn-js": "^8.10.0",
     "svelte-bpmn": "file:.."
   }
 }
