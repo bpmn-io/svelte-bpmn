@@ -24,7 +24,7 @@
     "all": "run-s build lint"
   },
   "dependencies": {
-    "bpmn-js": "^8.10.0"
+    "bpmn-js": "^18.25.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",

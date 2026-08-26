@@ -6,7 +6,7 @@ All notable changes to [svelte-bpmn](https://github.com/bpmn-io/svelte-bpmn) are
 
 ___Note:__ Yet to be released changes appear here._
 
-* `DEPS`: update to `bpmn-js@8.10.0`
+* `DEPS`: update to `bpmn-js@18.25.1`
 
 
 ## 0.1.0
