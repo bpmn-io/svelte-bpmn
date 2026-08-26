@@ -10,7 +10,6 @@
     "mini-css-extract-plugin": "^2.1.0",
     "node-sass": "^6.0.1",
     "npm-run-all2": "^9.0.3",
-    "raw-loader": "^4.0.2",
     "sass": "^1.36.0",
     "sass-loader": "^12.1.0",
     "serve": "^12.0.0",

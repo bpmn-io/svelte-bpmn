@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.bpmn$/,
-        loader: 'raw-loader'
+        type: 'asset/source'
       }
     ]
   },
