@@ -1,13 +1,15 @@
 import bpmnIoPlugin from 'eslint-plugin-bpmn-io';
-import svelte3 from 'eslint-plugin-svelte3';
+import { createNodeResolver } from 'eslint-plugin-import-x';
+import svelte from 'eslint-plugin-svelte';
+import { fileURLToPath } from 'node:url';
 
 const files = {
   ignored: [
     'dist',
     'example/public'
   ],
-  node: [
-    'rollup.config.js',
+  build: [
+    'rollup.config.mjs',
     'example/webpack.config.js'
   ],
   commonjs: [
@@ -23,8 +25,13 @@ export default [
   ...bpmnIoPlugin.configs.esm,
   ...bpmnIoPlugin.configs.node.map(config => ({
     ...config,
-    files: files.node
+    files: files.build,
+    languageOptions: {
+      ...config.languageOptions,
+      ecmaVersion: 'latest'
+    }
   })),
+  ...svelte.configs.recommended,
   {
     files: files.commonjs,
     languageOptions: {
@@ -35,13 +42,22 @@ export default [
     }
   },
   {
-    files: [ '**/*.svelte' ],
-    plugins: {
-      svelte3
-    },
-    processor: 'svelte3/svelte3',
     settings: {
-      'svelte3/ignore-styles': attrs => attrs.lang === 'scss'
+      'import-x/parsers': {
+        espree: [
+          '.js',
+          '.mjs'
+        ]
+      },
+      'import-x/resolver-next': [
+        createNodeResolver({
+          alias: {
+            'svelte-bpmn': [
+              fileURLToPath(new URL('./src/index.js', import.meta.url))
+            ]
+          }
+        })
+      ]
     }
   }
 ];

@@ -4,32 +4,42 @@
   "version": "0.1.0",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
+  "umd": "dist/svelte-bpmn.umd.js",
   "svelte": "src/index.js",
   "files": [
     "src",
     "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm run build",
-    "lint": "eslint --ext js,svelte .",
-    "all": "run-s lint build"
+    "prepare": "npm run build",
+    "lint": "eslint .",
+    "all": "run-s build lint"
   },
   "dependencies": {
     "bpmn-js": "^8.10.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^19.0.2",
-    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
     "eslint": "^9",
     "eslint-plugin-bpmn-io": "^2.3.1",
-    "eslint-plugin-svelte3": "^4.0.0",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-svelte": "^3.23.0",
+    "espree": "^10.4.0",
     "npm-run-all2": "^9.0.3",
-    "rollup": "^2.55.1",
-    "rollup-plugin-svelte": "^7.1.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "svelte": "^3.41.0",
-    "svelte-loader": "^3.1.2"
+    "rollup": "^4.62.4",
+    "rollup-plugin-svelte": "^7.2.3",
+    "svelte": "^5.56.9",
+    "svelte-loader": "^3.2.4"
   },
   "license": "MIT",
   "repository": {

@@ -37,10 +37,10 @@
   <p class="introduction">This example shows how to simply include a bpmn diagram into a Svelte application</p>
 
   <div class="diagram-container">
-    <SvelteBpmn 
-      xml={diagramXML} 
+    <SvelteBpmn
+      xml={diagramXML}
       onError={handleDiagramError}
-      onLoaded={handleDiagramLoaded} 
+      onLoaded={handleDiagramLoaded}
       onWarning={handleDiagramWarning}
     />
   </div>
@@ -55,5 +55,4 @@
 
   <p>Lorem commodo ridiculus lacinia Morbi nibh viverra Mattis amet curae; conubia Curabitur facilisis leo. Eget porta, magnis augue venenatis convallis posuere vestibulum sollicitudin tristique pharetra hac vitae viverra cubilia torquent scelerisque netus bibendum iaculis laoreet penatibus eros porta. Torquent molestie hendrerit ut rhoncus varius maecenas consectetuer tristique tellus donec. Condimentum donec curabitur vel libero Sit.</p>
 </div>
-
 

@@ -3,7 +3,6 @@
     onDestroy,
     onMount
   } from 'svelte';
-
   import BpmnViewer from 'bpmn-js/lib/Viewer';
 
   const noop = () => {};
@@ -15,7 +14,6 @@
 
   let container;
   let viewer;
-  
 
   onMount(async () => {
     viewer = new BpmnViewer({
@@ -52,8 +50,8 @@
   $: viewer && viewer.importXML(xml);
 </script>
 
-<div 
-  class="svelte-bpmn-container" 
-  style="height: 100%; width: 100%" 
+<div
+  class="svelte-bpmn-container"
+  style="height: 100%; width: 100%"
   bind:this={container}>
 </div>
